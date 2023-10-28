@@ -1,0 +1,82 @@
+Model Waterfall
+Waterfall adalah salah satu dari sekian banyak model proses pengembangan aplikasi (alias SDLC atau Software Development Life Cycle). Model Waterfall ini merupakan metode kerja yang menekankan fase-fase yang berurutan dan sistematis. Disebut waterfall lantaran proses yang terjadi dalam mengembangkan sebuah perangkat lunak atau aplikasi mengalir satu arah “ke bawah” bak air terjun.
+
+Gambar di bawah ini adalah contoh sederhana dari penerapan model Waterfall. 
+
+
+Pada model waterfall, setiap fase saling bergantung satu sama lain. Kita tak bisa lanjut ke fase berikutnya sebelum fase yang sedang dikerjakan saat ini benar-benar selesai. Misalnya, kita tak bisa melakukan pengujian (test) jika proses pengodean (code) dari keseluruhan aplikasi belum beres. Begitu juga dengan proses deploy, kita tidak bisa men-deploy aplikasi jika keseluruhan komponen belum lolos fase pengujian (test). Begitu seterusnya.
+
+Bayangkan saja, kita harus menunggu keseluruhan kode aplikasi (fase Code) selesai terlebih dahulu sebelum akhirnya bisa lanjut ke tahap pengujian (fase Test). Lantas, bagaimana jika pengujiannya ternyata gagal? Ya harus balik lagi ke fase Code. 
+
+Ketahuilah bahwa proses perpindahan dari satu fase ke fase lainnya pun memakan waktu yang lama, salah satu penyebabnya adalah tim yang bertanggung jawab perlu menyesuaikan tools yang mereka gunakan terlebih dahulu.
+
+Belum lagi jika di tengah-tengah proses pengembangan aplikasi tetiba ada perubahan kebutuhan, fitur, atau antarmuka; repotlah jadinya karena harus kembali ke fase awal, yakni penentuan persyaratan/kebutuhan (requirement).
+
+Huft! Harus menunggu berapa lama hingga akhirnya aplikasi bisa dinikmati pengguna? Tentunya akan melelahkan dan menghabiskan banyak waktu. Itulah mengapa model waterfall ini terkenal lambat, kaku terhadap perubahan, dan punya siklus rilis yang panjang.
+
+Mungkin sekarang Anda akan berpikir, “Mana ada sih perusahaan yang pakai model seperti ini?” Eits, jangan gegabah. Faktanya hingga saat ini model Waterfall masih banyak loh yang menggunakannya. Ada banyak alasan mengapa mereka tidak mau–atau mungkin tidak bisa–pindah dari model Waterfall, salah satunya karena kultur yang sudah mendarah daging sehingga tampaknya sukar sekali untuk lepas dari cengkeramannya. Utamanya lagi, dibutuhkan effort yang luar biasa besar untuk mengubah semua proses yang telah berlangsung lama itu. 
+
+Pada akhirnya, hanya inovasi dan persaingan pasarlah yang mampu mengubah kultur tersebut. Hmm, rasa-rasanya mirip seperti mitos yang mengatakan bahwa digigit tokek itu hanya bisa dilepas saat ada petir, ya?
+
+Untuk itulah kita belajar DevOps di kelas ini untuk menghapus stigma bahwa pengembangan aplikasi itu kaku dan lama. Niscaya, setelah memahami DevOps, Anda serasa dibawa ke dunia yang berbeda.
+
+
+
+Arsitektur Monolitik
+Tak cukup model Waterfall yang membuat proses pengembangan aplikasi menjadi hal yang mendongkolkan, masih ada lagi, yakni arsitektur aplikasi yang monolitik. Apa sih yang dimaksud dengan monolitik itu? 
+
+Maksudnya, dikatakan arsitektur monolitik apabila kita menempatkan berbagai komponen aplikasi di satu unit. Contoh sederhananya adalah ketika kita men-deploy authentication service (layanan autentikasi), order service (layanan pemesanan), dan account service (layanan akun) di satu Back-End server yang sama. 
+
+dos:c991fdca17ca8452162aa6fa0ab57bc020220517132452.jpeg
+
+Sebenarnya, arsitektur monolitik bukan berarti buruk sama sekali. Ia menjadi langkah awal yang bagus bagi Anda yang baru memulai pengembangan aplikasi agar bisa memahami kompleksitas sistem dan cakupan setiap komponen lebih baik. Namun, seiring makin rumitnya sistem yang Anda bangun, makin sulit pula untuk dikelola bila tetap menerapkan pendekatan monolitik.
+
+Pasalnya, itu berarti semua komponen (seperti authentication service, order service, account service, dll) saling terikat dan bergantung satu sama lain. Jika salah satu komponen gagal beroperasi, kemungkinan besar komponen yang lain akan terkendala.
+
+Oleh karena itu, apabila Anda memiliki aplikasi yang menggunakan pendekatan monolitik dan dirasa sudah sangat kompleks sehingga sulit untuk dikelola, sebaiknya modifikasilah arsitekturnya agar menerapkan pendekatan microservice.
+
+
+
+Proses Manual
+Selain dua hal yang sudah kita bahas sebelumnya, ihwal lain yang menjadi problem saat pengembangan aplikasi adalah prosesnya yang masih manual. Tentu kita tahu apa imbasnya. Proses yang dilakukan secara manual akan membuat pengembangan aplikasi menjadi lambat, tidak konsisten, dan rawan kesalahan. 
+
+dos:a3d953e4562d01e4cce9e4322537fc8420220517132451.jpeg
+
+Sebagai contoh, pengaturan dan pengonfigurasian infrastruktur (seperti server) secara manual merupakan proses yang sangat memakan waktu. Bagaimana tidak, melakukan proses ini ke beberapa server yang ada terus-menerus secara manual bisa menguras tenaga dan menghabiskan waktu hingga berhari-hari. Ditambah lagi, rentan sekali adanya kemungkinan bahwa satu atau dua langkah terlewat sehingga pada akhirnya timbul kesalahan konfigurasi.
+
+Contoh lainnya adalah melakukan pengujian secara manual. Coba bayangkan sejenak, kita harus memberi tahu setiap Developer untuk memastikan kode mereka diuji atau di-test secara menyeluruh sebelum mereka boleh melakukan push (dengan kata lain, mengunggahnya) ke repository (seperti GitHub atau GitLab misalnya).
+
+Kendatipun para Developer melakukannya, proses manual ini akan berjalan lambat dan tetap ada kemungkinan seseorang lupa melakukan satu atau dua pengujian. Ujung-ujungnya malah bisa melahirkan kemelut di lingkungan production dan merepotkan seisi perusahaan.
+
+
+
+Struktur Tim Tertutup
+Sekarang kita memasuki masalah yang cukup krusial nan utama pada proses pengembangan aplikasi, yakni tentang manusia. Tentu Anda paham bahwa makin banyak orang yang bergabung ke dalam suatu proses, makin banyak pula perspektif dan ide yang bisa kita dapatkan. Akan tetapi, terkadang juga itu malah menghadirkan masalah lain. Yakinlah, mengubah model, arsitektur, dan proses akan jauh lebih mudah ketimbang mengurusi manusia.
+
+Begitu juga dalam proses pengembangan aplikasi yang melibatkan banyak pihak di dalamnya. Umumnya, proses ini melibatkan 2 tim penting, yakni Developer dan IT Operations. Dua jenis profesi ini acap kali kita sebut sejak awal modul, memangnya apa sih mereka itu?
+
+Oke, bagi yang belum terlalu familier dengan keduanya, simak uraiannya di bawah ini.
+
+Developer: Seseorang atau tim yang mampu merancang (plan), menulis kode (code), mengemas kode (build), dan menguji (test) perangkat lunak atau aplikasi.
+
+IT Operations: Biasa disingkat juga sebagai Operations, adalah seseorang atau tim yang bertanggung jawab untuk merilis (release) dan menggelar (deploy) aplikasi, serta mengoperasikan (operate) dan memantau (monitor) infrastruktur (seperti server) yang menjalankan aplikasi tersebut.
+
+dos:a2bab856a0757a4a40a44316a704a8bd20220517132901.jpeg
+
+Developer dan IT Operations adalah dua tim yang krusial karena memiliki tujuan yang sama, yakni menyajikan aplikasi yang komprehensif dan stabil ke pengguna; tetapi sering kali mereka tertutup satu sama lain dan seakan-akan tercerai. Baik Developer maupun IT Operations, mereka memiliki prioritas, peralatan, dan pola kerjanya sendiri-sendiri sehingga acap kali menimbulkan pergolakan saat mereka bekerja sama. 
+
+Di satu sisi, Developer dituntut oleh perusahaan untuk dapat membuat perangkat lunak, mengembangkan aplikasi, memperbaiki bug, dan mengerjakan banyak fitur secepat mungkin. Sering kali yang diukur hanyalah jumlah fitur yang dikerjakan sehingga justru inilah yang mengakibatkan mereka tidak memperhatikan kualitas kode.
+
+Di sisi lain, IT Operations dituntut untuk membuat infrastruktur (seperti server, database, jaringan, dan sejenisnya) yang senantiasa stabil tanpa down. Nah, masalahnya, salah satu hal yang kerap membuat infrastruktur tidak stabil adalah perubahan yang terjadi pada aplikasi yang berjalan di dalamnya. Selain perubahan, intensitas deploy yang tinggi pun akan memperbesar potensi terjadinya masalah.
+
+Di sinilah letak masalah antara tim Developer dan IT Operations berpusat, kedua tim tersebut memiliki peran yang berseberangan satu sama lain. 
+
+Kebanyakan kasus di beberapa perusahaan, developer tidak mengetahui dan bahkan tak peduli bagaimana aplikasi yang mereka buat dapat berjalan dengan baik di lingkungan production. Developer hanya melempar kodenya ke tim IT Operations dan berharap semuanya berjalan dengan sempurna.
+
+Sementara itu, IT Operations hanya menerima kode dari Developer tanpa tahu untuk apa kode tersebut. Akhirnya, ketika di-deploy, masalah pun terjadi. 
+
+Tim IT Operations sering kali berasumsi bahwa kualitas kode yang buruk dari Developer adalah biang keladinya. Yang dituduh tentunya tak akan menelan mentah-mentah, tim Developer pun akan menyangkal hal tersebut. Pasalnya, selama di lingkungan Development dan Testing, aplikasi bisa berjalan normal dan tidak terjadi masalah sama sekali. Developer akan menyalahkan balik IT Operations karena tidak bisa menjalankan kode aplikasi di production dengan baik.
+
+dos:cb9c99fbcbd631dca008b0bb50598a0f20220517132903.jpeg
+
+Tindakan saling menyalahkan ini tentu saja dapat menimbulkan kekacauan di internal perusahaan dan membuat proses delivery (penyajian) aplikasi atau fitur ke pengguna menjadi terhambat dan kelam kabut. Alhasil pengguna pun kecewa, memberikan feedback buruk, dan perusahaan bisa kehilangan pasarnya. Lihatlah, hanya karena ini seisi perusahaan menjadi kalut.
